@@ -1,0 +1,17 @@
+<div class="ml-3">
+  <h1>My tasks</h1>
+  <br>
+  <% @tasks.each do |task| %>
+    <% if task.completed %>
+      <div class="d-flex">
+      </form> <p>✅ <strong><%= link_to task.title, task_path(task) %></strong></p><%= link_to "🗑️", drop_path(task), method: :delete %>
+      </div>
+    <% else %>
+      <div class="d-flex">
+      <p>⭕ <strong><%= link_to task.title, task_path(task) %></strong></p><%= link_to "🗑️", drop_path(task), method: :delete %>
+      </div>
+    <% end %>
+  <% end %>
+  <br>
+  <%= link_to '➕ create a new task', tasks_new_path %>
+</div>
